@@ -5,7 +5,8 @@ workflows:
       flutter: stable
       xcode: latest
     scripts:
-      - flutter pub get
-      - flutter build ipa --release
+      - flutter build ios --simulator
+      - mkdir -p build/ios/ipa
+      - zip -r build/ios/ipa/Runner.app.zip build/ios/iphonesimulator/Runner.app
     artifacts:
-      - build/ios/ipa/*.ipa
+      - build/ios/ipa/Runner.app.zip
